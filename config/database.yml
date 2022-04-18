@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: Rharl@2016
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: recipe_app
+
+test:
+  <<: *default
+  database: recipe_test
+
+production:
+  <<: *default
+  database: recipe_production
+  username: recipe
+  password: <%= ENV["RECIPE_DATABASE_PASSWORD"] %>
