@@ -1,6 +1,6 @@
-<h2>Sign up</h2>
+<h1 class="font-bold text-4xl mb-10">Sign up</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'flex flex-col gap-5 mb-5 items-start' }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -27,8 +27,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%
+=begin%>
+ <%= render "devise/shared/links" %> 
+<%
+=end%>
