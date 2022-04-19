@@ -1,7 +1,7 @@
 <h1 class="font-bold text-4xl mb-10 text-center"><%= @recipe.name %></h1>
 <div class="grid grid-cols-2 gap-y-4 mb-10">
   <h4 class="text-3xl">Preparation time: <span><%= @recipe.preparation_time %> minutes</span></h4>
-  <div class="row-span-2 justify-self-center">This recipe is <%= @recipe.public ? 'public' : 'Private' %></div>
+  <div class="row-span-2 justify-self-center text-xl">This recipe is <span class="font-bold"><%= @recipe.public ? 'public' : 'Private' %></span></div>
   <h4 class="text-3xl">Cooking time: <span><%= @recipe.cooking_time %> minutes</span></h4>
 </div>
 <p><%= @recipe.description %></p>
