@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
     if @food.save
       redirect_to new_foods_path, notice: 'You have added a new food!'
     else
-      redirect_to foods_path, notice: "Food not saved!"
+      redirect_to foods_path, notice: 'Food not saved!'
     end
   end
 
