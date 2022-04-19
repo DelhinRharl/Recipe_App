@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :foods, only: [:index, :create, :new]
+  resources :foods, only: [:index, :create, :new, :destroy]
   devise_for :users
   get '/foods', to: 'foods#index', as: 'user_root'
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
