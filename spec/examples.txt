@@ -2,7 +2,7 @@ example_id                                           | status  | run_time       
 ---------------------------------------------------- | ------- | --------------- |
 ./spec/models/food_spec.rb[1:1]                      | pending | 0.00001 seconds |
 ./spec/models/recipe_food_spec.rb[1:1]               | pending | 0 seconds       |
-./spec/models/recipe_spec.rb[1:1]                    | pending | 0 seconds       |
+./spec/models/recipe_spec.rb[1:1:1]                  | passed  | 0.03046 seconds |
 ./spec/models/user_spec.rb[1:1]                      | pending | 0 seconds       |
 ./spec/requests/foods_spec.rb[1:1:1]                 | failed  | 0.01966 seconds |
 ./spec/requests/general_shopping_list_spec.rb[1:1:1] | failed  | 0.00134 seconds |
