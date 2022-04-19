@@ -1,0 +1,13 @@
+ <div>
+ <h3>Add New Food</h3>
+<%= form_with model: @food, url: foods_path,
+scope: :food do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name, placeholder:"food name",required: true%>
+<%= form.label :price %>
+<%= form.text_field :price, placeholder: "price",required: true %>
+<%= form.label :measurement %>
+<%= form.text_field :measurement_unit, placeholder:"units",required: true%>
+<%= form.submit %>
+<% end %>
+ </div>
