@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
       redirect_to new_recipe_path, notice: 'recipe could not be created!'
     end
   end
-  
+
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy!
