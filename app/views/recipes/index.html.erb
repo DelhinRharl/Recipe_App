@@ -1,2 +1,12 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1 class="font-bold text-4xl mb-10">Recipes</h1>
+<ul class="flex flex-col gap-4">
+<% @recipes.each do |recipe| %>
+    <li class="border border-black p-5 grid grid-cols-2 gap-y-4">
+      <%= link_to recipe_path(recipe.id) do  %>
+        <h3 class="text-3xl hover:opacity-60"><%= recipe.name %></h3>
+      <% end %>
+      <p><%= recipe.description %></p>
+      <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: 'hover:opacity-60 underline' %>
+    </li>
+<% end %>
+</ul>
