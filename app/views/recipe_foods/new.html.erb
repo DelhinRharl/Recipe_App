@@ -1,4 +1,12 @@
 <div>
-  <h1 class="font-bold text-4xl">RecipeFoods#new</h1>
-  <p>Find me in app/views/recipe_foods/new.html.erb</p>
+  <h1 class="font-bold text-4xl mb-10">Add ingredient for <%= @recipe.name %></h1>
+  <% if @food.present? %>
+      <%= form_with model: @recipe_food, url: recipe_recipe_foods_path do |f| %>
+        <%= f.hidden_field :recipe_id, value: @recipe.id %>
+        <%= f.select :food_id, @foods.map { |food| [food.name, food.id] } %>
+        <%= f.submit "Add ingredient", class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+      <% end %> 
+  <% else %> 
+    <h3 class="font-bold mb-10">No food available for <%= current_user.name %> head over to <%= link_to "foods page", foods_path, class: 'underline' %> to add new food</h3>
+  <% end %>
 </div>
