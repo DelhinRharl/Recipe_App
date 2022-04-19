@@ -12,12 +12,15 @@
   </head>
 
   <body>
+    <%= render "shared/header" %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <main class="container mx-auto w-[95%]">
+      <%= yield %>
+    </main>
   </body>
 </html>

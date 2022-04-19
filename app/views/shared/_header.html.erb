@@ -1,0 +1,19 @@
+<header class="container mx-auto py-5 flex items-center w-[95%]">
+  <span class="font-bold text-2xl">Recipes App</span>
+  <nav class="grow flex justify-center">
+    <ul class="flex gap-4 items-center">
+      <li><%= link_to "Foods", foods_path, class: 'hover:opacity-60'  %></li>
+      <li><%= link_to "Recipes", recipes_path, class: 'hover:opacity-60'  %></li>
+    </ul>
+  </nav>
+  <nav class="">
+    <ul class="flex gap-4 items-center">
+      <% if current_user %>
+        <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'hover:opacity-60'  %></li>
+      <% else %>
+        <li><%= link_to "Sign in", new_user_session_path, class: 'hover:opacity-60' %></li>
+        <li><%= link_to "Sign up", new_user_registration_path, class: 'hover:opacity-60' %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
