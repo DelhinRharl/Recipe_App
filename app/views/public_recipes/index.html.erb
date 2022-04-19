@@ -1,10 +1,15 @@
-<div>
-<h1>Public Recipes</h1>
-<% @public_recipes.each do |public, index|%>
-<%= link_to public.name, public_recipes_path(public), by: public[:user] %>
-<div>
-<p>Total food items: <%= public[:food_items]%></p>
-<p>Total Price: <%=public%> </p>
-</div>
+<h2 class="text-amber-700"> Public Recipes </h2>
+<% @recipes.each do |recipe| %>
+  <%= link_to recipes_path() do %> 
+    <div class="row border m-1">
+      <div>
+        <h3> <%= recipe.name%> </h3>
+        <p> By: <%= recipe.user.name %> </p>
+      </div>
+      <div>
+        <h6> Total food items: <%= recipe[:food_items] %></h6>
+        <h6> Total price: $<%=recipe[:total_price] %> </h6>
+      </div>
+    </div>
+  <% end %>
 <% end %>
-</div>
