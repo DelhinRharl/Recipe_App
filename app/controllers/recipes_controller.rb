@@ -2,10 +2,10 @@ class RecipesController < ApplicationController
   def index
     redirect_to public_recipes_path unless current_user
 
-    @recipes = Recipe.all
+    @recipes = current_user.recipes
   end
 
-  def show 
+  def show
     @recipe = Recipe.find(params[:id])
   end
 
