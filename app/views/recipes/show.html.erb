@@ -3,8 +3,10 @@
   <h4 class="text-3xl">Preparation time: <span><%= @recipe.preparation_time %> minutes</span></h4>
   <div class="row-span-2 justify-self-center text-xl">This recipe is <span class="font-bold"><%= @recipe.public ? 'public' : 'Private' %></span></div>
   <h4 class="text-3xl mb-10">Cooking time: <span><%= @recipe.cooking_time %> minutes</span></h4>
-  <%= link_to "Generate shopping list", general_shopping_list_index_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
-  <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'border border-black p-2 rounded-lg cursor-pointer justify-self-end hover:opacity-60' %>
+  <% if can? :manage, @recipe %>
+    <%= link_to "Generate shopping list", general_shopping_list_index_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'border border-black p-2 rounded-lg cursor-pointer justify-self-end hover:opacity-60' %>
+  <% end %>
 </div>
 <% if @recipe.foods.present? %>
   <table class="table-auto w-full text-left mb-10 text-lg">
@@ -22,7 +24,11 @@
           <td class="p-4"><%= food.name %></td>
           <td class="p-4"><%= food.measurement_unit %></td>
           <td class="p-4"><%= food.price %></td>
-          <td class="p-4">Modify Delete</td>
+          <td class="p-4">
+          <% if can? :manage, @recipe %>
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: food.id), class: 'underline' %> Delete
+          <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
