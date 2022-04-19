@@ -1,2 +1,9 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<div class="flex justify-between items-center mb-10">
+  <h1 class="font-bold text-4xl">Recipes from <%= current_user.name %></h1>
+  <%= link_to "Add new recipe", new_recipe_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+</div>
+<ul class="flex flex-col gap-4">
+<% @recipes.each do |recipe| %>
+    <%= render partial: "recipe-card", locals: { recipe: recipe } %>
+<% end %>
+</ul>

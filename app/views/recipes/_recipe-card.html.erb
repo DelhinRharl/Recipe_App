@@ -1,0 +1,7 @@
+<li class="border border-black p-5 grid grid-cols-2 gap-y-4">
+  <%= link_to recipe_path(recipe.id) do  %>
+    <h3 class="text-3xl hover:opacity-60"><%= recipe.name %></h3>
+  <% end %>
+  <p><%= truncate recipe.description, length: 240 %></p>
+  <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: 'hover:opacity-60 underline' if can? :destroy, recipe %>
+</li>
