@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.feature 'Login', type: :feature do
   background { visit new_user_session_path }
   scenario 'render email field' do
@@ -7,10 +8,6 @@ RSpec.feature 'Login', type: :feature do
 
   scenario 'render password field' do
     expect(page).to have_field('user[password]')
-  end
-
-  scenario 'render login button' do
-    expect(page).to have_button('Log in')
   end
 
   context 'submit form' do

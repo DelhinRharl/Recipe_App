@@ -38,5 +38,4 @@ RSpec.describe 'Recipes', type: :request do
       expect(response).to redirect_to(foods_path)
     end
   end
-
 end
