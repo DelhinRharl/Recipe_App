@@ -11,7 +11,7 @@ class RecipeFoodsController < ApplicationController
     if recipe_food.save
       redirect_to recipe_path(recipe_food.recipe_id), notice: 'Ingredient was added successfully!'
     else
-      flash[:alert] = "Failed creating ingredient"
+      flash[:alert] = 'Failed creating ingredient'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -21,11 +21,9 @@ class RecipeFoodsController < ApplicationController
     @foods = current_user.foods
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
