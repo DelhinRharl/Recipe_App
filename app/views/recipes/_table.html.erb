@@ -2,7 +2,7 @@
     <thead class="bg-gray-400">
       <tr class="h-10">
         <th class="p-4">Food</th>
-        <th class="p-4">Measurement Unit</th>
+        <th class="p-4">Quanity</th>
         <th class="p-4">Value</th>
         <th class="p-4">Actions</th>
       </tr>
@@ -11,7 +11,7 @@
       <% @recipe.foods.each do |food| %>
         <tr class="h-16">
           <td class="p-4"><%= food.name %></td>
-          <td class="p-4"><%= food.measurement_unit %></td>
+          <td class="p-4"><%= RecipeFood.where(recipe: @recipe, food: food).first.quantity %> <%= food.measurement_unit %></td>
           <td class="p-4">$<%= food.price %></td>
           <td class="p-4">
           <% if can? :manage, @recipe %>

@@ -18,7 +18,7 @@ class RecipeFoodsController < ApplicationController
 
   def edit
     @recipe_food = RecipeFood.find(params[:id])
-    @foods = current_user.foods.reject { |food| food.id == @recipe_food.food_id }
+    @foods = current_user.foods
   end
 
   def update
