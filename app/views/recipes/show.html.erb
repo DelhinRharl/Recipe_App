@@ -26,7 +26,8 @@
           <td class="p-4"><%= food.price %></td>
           <td class="p-4">
           <% if can? :manage, @recipe %>
-            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: RecipeFood.where(recipe_id: @recipe.id, food_id: food.id).first.id), class: 'underline' %> Delete
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: RecipeFood.where(recipe_id: @recipe.id, food_id: food.id).first.id), class: 'underline' %> 
+            <%= button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: RecipeFood.where(recipe_id: @recipe.id, food_id: food.id).first.id), method: :delete, class: 'underline'%>
           <% end %>
           </td>
         </tr>
