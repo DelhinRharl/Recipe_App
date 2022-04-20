@@ -16,6 +16,14 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def edit
+    @recipe_food = RecipeFood.find(params[:id])
+    @foods = current_user.foods
+  end
+
+  def update
+  end
+
   def destroy
   end
 
