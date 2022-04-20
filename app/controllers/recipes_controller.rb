@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:foods).find(params[:id])
   end
 
   def new
@@ -23,6 +23,13 @@ class RecipesController < ApplicationController
     else
       redirect_to new_recipe_path, notice: 'recipe could not be created!'
     end
+  end
+
+  def update
+    recipe = Recipe.find(params[:id])
+    recipe.update(public: !recipe.public)
+
+    redirect_to recipe_path(recipe.id), notice: "The recipe is now #{recipe.public ? 'public' : 'private'}!"
   end
 
   def destroy

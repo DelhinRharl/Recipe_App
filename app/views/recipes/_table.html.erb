@@ -1,0 +1,25 @@
+<table class="table-auto w-full text-left mb-10 text-lg">
+    <thead class="bg-gray-400">
+      <tr class="h-10">
+        <th class="p-4">Food</th>
+        <th class="p-4">Measurement Unit</th>
+        <th class="p-4">Value</th>
+        <th class="p-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="bg-gray-300 p-20">
+      <% @recipe.foods.each do |food| %>
+        <tr class="h-16">
+          <td class="p-4"><%= food.name %></td>
+          <td class="p-4"><%= food.measurement_unit %></td>
+          <td class="p-4">$<%= food.price %></td>
+          <td class="p-4">
+          <% if can? :manage, @recipe %>
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: RecipeFood.where(recipe_id: @recipe.id, food_id: food.id).first.id), class: 'underline' %> 
+            <%= button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: RecipeFood.where(recipe_id: @recipe.id, food_id: food.id).first.id), method: :delete, class: 'underline'%>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

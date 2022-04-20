@@ -1,0 +1,8 @@
+<div>
+  <h1 class="font-bold text-4xl mb-10">Add ingredient for <%= @recipe.name %></h1>
+  <% if @foods.present? %>
+      <%= render "form", recipe_food: @recipe_food, recipe: @recipe, foods: @foods %>
+  <% else %> 
+    <h3 class="font-bold mb-10">No food available for <%= current_user.name %> head over to <%= link_to "foods page", foods_path, class: 'underline' %> to add new food</h3>
+  <% end %>
+</div>

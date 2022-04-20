@@ -1,15 +1,7 @@
-<h2 class="text-amber-700"> Public Recipes </h2>
-<% @recipes.each do |recipe| %>
-  <%= link_to recipes_path() do %> 
-    <div class="row border m-1">
-      <div>
-        <h3> <%= recipe[:name]%> </h3>
-        <p> By: <%= recipe[:user] %> </p>
-      </div>
-      <div>
-        <h6> Total food items: <%= recipe[:food_items] %></h6>
-        <h6> Total price: $<%=recipe[:total_price] %> </h6>
-      </div>
-    </div>
+<h1 class="font-bold text-4xl mb-10">Public Recipes</h1>
+<ul class="flex flex-col gap-4">
+  <% @recipes.each do |recipe| %>
+      <%= render partial: "recipe-card", locals: { recipe: recipe } %>
   <% end %>
-<% end %>
+</ul>
+
