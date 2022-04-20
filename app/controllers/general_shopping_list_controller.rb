@@ -1,3 +1,5 @@
 class GeneralShoppingListController < ApplicationController
-  def index; end
+  def index
+    @recipe_foods = RecipeFood.all
+  end
 end
