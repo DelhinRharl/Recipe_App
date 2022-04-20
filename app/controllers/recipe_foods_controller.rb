@@ -2,7 +2,7 @@ class RecipeFoodsController < ApplicationController
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new
-    @foods = current_user.foods.select {|food| @recipe.foods.exclude?(food)}
+    @foods = current_user.foods.select { |food| @recipe.foods.exclude?(food) }
   end
 
   def create
@@ -18,7 +18,7 @@ class RecipeFoodsController < ApplicationController
 
   def edit
     @recipe_food = RecipeFood.find(params[:id])
-    @foods = current_user.foods.select {|food| food.id != @recipe_food.food_id }
+    @foods = current_user.foods.reject { |food| food.id == @recipe_food.food_id }
   end
 
   def update
@@ -31,7 +31,7 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     recipe_food = RecipeFood.find(params[:id])
     recipe_food.destroy
 
