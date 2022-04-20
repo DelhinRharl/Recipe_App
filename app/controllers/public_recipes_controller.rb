@@ -5,7 +5,7 @@ class PublicRecipesController < ApplicationController
         name: recipe.name,
         user: recipe.user.name,
         food_items: recipe.foods.count,
-        total_price: recipe.foods.map.sum(:price)
+        total_price: recipe.foods.sum(:price)
       }
     end
   end
