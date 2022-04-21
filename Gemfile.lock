@@ -105,6 +105,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
+    ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -246,6 +248,8 @@ GEM
     strscan (3.0.1)
     tailwindcss-rails (2.0.8)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.8-arm64-darwin)
+      railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.2.0)
     turbo-rails (1.0.1)
@@ -285,6 +289,7 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  ffi
   importmap-rails
   jbuilder
   pg (~> 1.1)

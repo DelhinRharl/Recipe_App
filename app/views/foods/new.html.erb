@@ -6,7 +6,7 @@ scope: :food do |form| %>
 <%= form.text_field :name, placeholder:"food name",required: true%>
 <%= form.label :price %>
 <%= form.text_field :price, placeholder: "price",required: true %>
-<%= form.label :measurement %>
+<%= form.label :measurement_units %>
 <%= form.text_field :measurement_unit, placeholder:"units",required: true%>
 <%= form.submit %>
 <% end %>
