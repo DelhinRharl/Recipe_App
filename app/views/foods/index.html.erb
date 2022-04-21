@@ -1,8 +1,10 @@
 <h1 class="text-4xl font-semibold text-center mb-10">Foods</h1>
 <div class="text-right">
-  <button class="bg-white text-gray-800 border border-gray-300 w-30 h-10 rounded-md shadow inline text-right">
-      <%= link_to 'Add New Food', new_food_path %>
-  </button>
+  <% if current_user %>
+    <button class="bg-white text-gray-800 border border-gray-300 w-30 h-10 rounded-md shadow inline text-right">
+        <%= link_to 'Add New Food', new_food_path %>
+    </button>
+  <% end %>
 </div>
 <table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
     <thead class="bg-gray-400">
