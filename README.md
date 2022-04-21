@@ -47,29 +47,15 @@ rails db:migrate
 Start server:
 
 ```
-rails server/ Rails s
+rails server
 ```
 
 Visit http://localhost:3000/ in your browser.
 
 ### Run tests
 
-Install rspec:
-
 ```
-bundle install
-```
-
-and
-
-```
-rails generate rspec:install
-```
-
-run tests:
-
-```
-rspec spec
+rspec
 ```
  
   ## Authors
