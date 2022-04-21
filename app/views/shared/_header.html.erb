@@ -11,6 +11,7 @@
   <nav class="">
     <ul class="flex gap-4 items-center">
       <% if current_user %>
+        <li><%=current_user.name%></li>
         <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'hover:opacity-60'  %></li>
       <% else %>
         <li><%= link_to "Sign in", new_user_session_path, class: 'hover:opacity-60' %></li>
