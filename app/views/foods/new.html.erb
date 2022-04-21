@@ -1,0 +1,13 @@
+ <div>
+ <h3 class="font-bold text-4xl mb-10">Add New Food</h3>
+<%= form_with model: @food, url: foods_path,
+scope: :food, html: {class: 'flex flex-col items-start gap-2'} do |form| %>
+  <%= form.label :name, class: 'font-bold text-xl' %>
+  <%= form.text_field :name, placeholder:"e.g. Eggs", class: 'w-full max-w-sm', required: true%>
+  <%= form.label :price, class: 'font-bold text-xl' %>
+  <%= form.number_field :price, placeholder: "$", class: 'w-full max-w-sm', required: true %>
+  <%= form.label :measurement_units, class: 'font-bold text-xl' %>
+  <%= form.text_field :measurement_unit, placeholder:"e.g. Grams", class: 'w-full max-w-sm', required: true%>
+  <%= form.submit class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60 mt-8' %>
+<% end %>
+ </div>

@@ -1,0 +1,19 @@
+<h1 class="font-bold text-4xl mb-10 text-center"><%= @recipe.name %></h1>
+<div class="grid grid-cols-2 gap-y-4 mb-10 justify-items-start">
+  <h4 class="text-3xl">Preparation time: <span><%= @recipe.preparation_time %> minutes</span></h4>
+  <div class="row-span-2 justify-self-center text-xl">
+    This recipe is <span class="font-bold"><%= @recipe.public ? 'public' : 'Private' %></span>
+    <% if can? :manage, @recipe %>
+      <%= button_to "Make it #{@recipe.public ? 'private' : 'public'}", recipe_path(@recipe.id), class: 'underline', method: :patch %>
+    <% end %>
+  </div>
+  <h4 class="text-3xl mb-10">Cooking time: <span><%= @recipe.cooking_time %> minutes</span></h4>
+  <% if can? :manage, @recipe %>
+    <%= link_to "Generate shopping list", general_shopping_list_index_path, class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'border border-black p-2 rounded-lg cursor-pointer justify-self-end hover:opacity-60' %>
+  <% end %>
+</div>
+<% if @recipe.foods.present? %>
+  <%= render "table" %>
+<% end %>
+<p><%= @recipe.description %></p>

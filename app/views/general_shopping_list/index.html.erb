@@ -1,0 +1,10 @@
+<h1 class="font-bold text-4xl mb-10 text-center">Shopping List for <%= current_user.name %></h1>
+<div class="mb-10 text-center">
+  <span class="text-2xl mr-10">
+    Amount of food items to buy: <span class="font-bold"><%= current_user.foods.uniq.length %></span>
+  </span>
+  <span class="text-2xl">
+    Total value of food needed: <span class="font-bold">$<%= @recipe_foods.map {|r| r.food.price * (r.quantity || 0)}.sum %></span>
+  </span>
+</div>
+<%= render "table" %>

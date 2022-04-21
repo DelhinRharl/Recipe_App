@@ -1,0 +1,8 @@
+<li class="border border-black p-5 grid grid-cols-2 gap-y-4">
+  <%= link_to recipe_path(recipe.id) do  %>
+    <h3 class="text-3xl hover:opacity-60"><%= recipe.name %></h3>
+  <% end %>
+  <h3>Total food items: <span class="font-bold"><%= recipe.foods.count %></span></h3>
+  <h3>by <span class="font-bold text-xl"><%= recipe.user.name %></span></h3>
+  <h3>Total price: <span class="font-bold">$<%= recipe.foods.sum :price %></span></h3>
+</li>

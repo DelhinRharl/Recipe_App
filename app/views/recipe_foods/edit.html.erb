@@ -1,0 +1,8 @@
+<h1 class="font-bold text-4xl mb-10">Edit ingredient</h1>
+<%= form_with model: @recipe_food, url: recipe_recipe_food_path(recipe_id: @recipe_food.recipe_id, id: @recipe_food.id), html: { class: 'flex flex-col items-start gap-4' }, method: :patch do |f| %>
+  <%= f.hidden_field :id, value: @recipe_food.id %>
+  <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
+  <%= f.select :food_id, @foods.map { |food| [food.name, food.id] }, {}, { class: "w-full max-w-sm p-2"} %>
+  <%= f.number_field :quantity, placeholder: 'Quantity', min: 0, required: true, class: "w-full max-w-[100px] p-2" %>
+  <%= f.submit "Add ingredient", class: 'border border-black p-2 rounded-lg cursor-pointer hover:opacity-60' %>
+<% end %> 
