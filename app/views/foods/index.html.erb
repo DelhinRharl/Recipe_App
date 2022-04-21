@@ -1,28 +1,25 @@
-<div class=" flex-col">
-<div>
-<h1 class="text-xl font-semibold">Foods</h1>
-</div>
-<div>
-<button class="bg-white text-gray-800 border border-gray-300 w-30 h-10 rounded-md shadow">
-    <%= link_to 'Add New Food', new_food_path%>
-</button>
+<h1 class="text-4xl font-semibold text-center mb-10">Foods</h1>
+<div class="text-right">
+  <button class="bg-white text-gray-800 border border-gray-300 w-30 h-10 rounded-md shadow inline text-right">
+      <%= link_to 'Add New Food', new_food_path %>
+  </button>
 </div>
 <table class="table-auto w-full max-w-xl mx-auto text-left mb-10 text-lg">
     <thead class="bg-gray-400">
         <tr class="h-10">
             <th class="p-4">Name</th>
             <th class="p-4">Price</th>
-            <th class="p-4">measurement_unit</th>
+            <th class="p-4">Measurement unit</th>
             <th class="p-4">Actions</th>
         </tr>
     </thead>
   <tbody class="bg-gray-300 p-20">
     <% @foods.each do |food| %>
         <tr>
-        <td><%= food.name %></td>
-        <td><%= food.price %></td>
-        <td><%= food.measurement_unit %></td>
-        <td> 
+        <td class="p-4"><%= food.name %></td>
+        <td class="p-4"><%= food.price %></td>
+        <td class="p-4"><%= food.measurement_unit %></td>
+        <td class="p-4"> 
            <% if can? :destroy, food %> 
             <%= button_to "Delete", food_path(food.id ), :method => :delete %> 
           <% end %>
@@ -31,5 +28,4 @@
     <% end %>
   </table>
 </tbody>
-</div>
 
