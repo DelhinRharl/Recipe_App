@@ -4,5 +4,5 @@
   <% end %>
   <h3>Total food items: <span class="font-bold"><%= recipe.foods.count %></span></h3>
   <h3>by <span class="font-bold text-xl"><%= recipe.user.name %></span></h3>
-  <h3>Total price: <span class="font-bold"><%= recipe.foods.sum :price %></span></h3>
+  <h3>Total price: <span class="font-bold">$<%= recipe.foods.sum :price %></span></h3>
 </li>
