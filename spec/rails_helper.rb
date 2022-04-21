@@ -1,7 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-# rubocop:disable Style/FetchEnvVar
 require 'spec_helper'
+# rubocop:disable Style/FetchEnvVar
 ENV['RAILS_ENV'] ||= 'test'
+# rubocop:enable Style/FetchEnvVar
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?

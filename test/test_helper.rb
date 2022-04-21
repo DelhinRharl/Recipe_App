@@ -1,5 +1,6 @@
-  # rubocop:disable Style/FetchEnvVar
+# rubocop:disable Style/FetchEnvVar
 ENV['RAILS_ENV'] ||= 'test'
+# rubocop:enable Style/FetchEnvVar
 require_relative '../config/environment'
 require 'rails/test_help'
 
