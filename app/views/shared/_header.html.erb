@@ -5,13 +5,13 @@
       <li><%= link_to "Foods", foods_path, class: 'hover:opacity-60'  %></li>
       <li><%= link_to "Recipes", recipes_path, class: 'hover:opacity-60' if current_user  %></li>
       <li><%= link_to "Public Recipes", public_recipes_path, class: 'hover:opacity-60'  %></li>
-      <li><%= link_to "Shopping List", general_shopping_list_index_path, class: 'hover:opacity-60'  %></li>
+      <li><%= link_to "Shopping List", general_shopping_list_index_path, class: 'hover:opacity-60' if current_user  %></li>
     </ul>
   </nav>
   <nav class="">
     <ul class="flex gap-4 items-center">
       <% if current_user %>
-        <li><%=current_user.name%></li>
+        <li>Signed in as <span class="font-bold"><%=current_user.name%></span></li>
         <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'hover:opacity-60'  %></li>
       <% else %>
         <li><%= link_to "Sign in", new_user_session_path, class: 'hover:opacity-60' %></li>
