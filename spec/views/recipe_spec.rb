@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Testing posts views', type: :feature do
+RSpec.describe 'Testing recipe views', type: :feature do
   describe 'Recipe#index' do
     before(:each) do
       user = User.create name: 'Test', email: 'test@example.com', password: 'password'
